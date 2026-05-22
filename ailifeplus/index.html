@@ -4,7 +4,944 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AILiFE+: An Inclusive AI Literacy and Workforce Readiness Framework for Disabled People in Ireland</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <style>
+/* =============================================================
+   AILiFE+ — Main Stylesheet
+   Project: AILiFE+: An Inclusive AI Literacy and Workforce
+            Readiness Framework for Disabled People in Ireland
+   Structure:
+     1.  Reset & Base
+     2.  Top Bar
+     3.  Hero
+     4.  Body Wrapper
+     5.  About Section
+     6.  Activities Section
+     7.  Team Section
+     8.  Team Groups & Member Cards
+     9.  News Section
+     10. Quick Links
+     11. Contact Section
+     12. Footer
+     13. Responsive
+   ============================================================= */
+
+
+/* ── 1. RESET & BASE ─────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1e1e1e;
+  background: #fff;
+}
+
+a {
+  color: #005b99;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* ── 2. TOP BAR ──────────────────────────────────────────────── */
+
+.topbar {
+  background: #1e1e1e;
+  color: #fff;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ucd-crest {
+  height: 38px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.topbar-divider {
+  width: 1px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.site-name {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.site-name strong {
+  display: block;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.topbar-nav {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.topbar-nav a {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 4px;
+  transition: background 0.15s;
+  text-decoration: none;
+}
+
+.topbar-nav a:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+
+/* ── 3. HERO ─────────────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  background: #0b1c3d;
+  min-height: 380px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.hero-img-placeholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0b1c3d 0%, #163a70 60%, #1a4f99 100%);
+}
+
+/* To use a real hero photo, replace .hero-img-placeholder with:
+   <img src="images/hero.jpg" alt="..." class="hero-img">
+   and add this CSS:
+   .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; } */
+
+.hero-img-placeholder::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(255, 255, 255, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 80% at 10% 70%, rgba(0, 91, 153, 0.2) 0%, transparent 50%);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(11, 28, 61, 0.82) 0%,
+    rgba(11, 28, 61, 0.35) 60%,
+    rgba(11, 28, 61, 0.1) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 48px 48px 52px;
+  max-width: 900px;
+}
+
+.hero-eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 14px;
+  font-weight: 400;
+}
+
+.hero h1 {
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.hero-sub {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 400;
+  max-width: 680px;
+  line-height: 1.5;
+}
+
+
+/* ── 4. BODY WRAPPER ─────────────────────────────────────────── */
+
+.body-wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+
+/* ── 5. ABOUT SECTION ────────────────────────────────────────── */
+
+.about-section {
+  padding: 56px 0 48px;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.about-img-placeholder {
+  background: #e8edf4;
+  border: 1px solid #d0d8e6;
+  aspect-ratio: 4 / 3;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8a96ab;
+  font-size: 13px;
+  text-align: center;
+  padding: 20px;
+}
+
+/* To use a real image: replace the placeholder div with
+   <img src="images/about-photo.jpg" alt="..." class="about-img"> */
+
+.about-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #d0d8e6;
+}
+
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #005b99;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.about-section h2 {
+  font-size: clamp(24px, 3vw, 36px);
+  color: #1e1e1e;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  font-size: 16px;
+  color: #3d3d3d;
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.about-section p:last-child {
+  margin-bottom: 0;
+}
+
+.show-more-btn {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 14px;
+  color: #005b99;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  text-decoration: underline;
+}
+
+.extra-text {
+  display: none;
+}
+
+.extra-text.open {
+  display: block;
+}
+
+
+/* ── 6. ACTIVITIES SECTION ───────────────────────────────────── */
+
+.activities-section {
+  padding: 56px 0;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.activities-section > h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  color: #1e1e1e;
+  margin-bottom: 32px;
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.activity-card {
+  border: 1px solid #dde3ed;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.activity-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  text-decoration: none;
+}
+
+.activity-img {
+  background: #d6dde8;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7a8599;
+  font-size: 13px;
+  text-align: center;
+  padding: 16px;
+  border-bottom: 1px solid #dde3ed;
+}
+
+/* To use real images: replace <div class="activity-img"> with
+   <img src="images/activity-survey.jpg" alt="..." class="activity-img-real"> */
+
+.activity-img-real {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid #dde3ed;
+}
+
+.activity-img.green  { background: #d4e8d8; color: #3a6644; }
+.activity-img.slate  { background: #cfd5e0; color: #44506a; }
+.activity-img.teal   { background: #cce4e8; color: #2e5f67; }
+
+.activity-body {
+  padding: 20px;
+}
+
+.activity-body h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1e1e1e;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.activity-body p {
+  font-size: 14.5px;
+  color: #4a4a4a;
+  line-height: 1.65;
+}
+
+.activity-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 13.5px;
+  color: #005b99;
+  font-weight: 600;
+}
+
+
+/* ── 7. TEAM SECTION ─────────────────────────────────────────── */
+
+.team-section {
+  padding: 56px 0;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.team-section > h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  color: #1e1e1e;
+  margin-bottom: 8px;
+}
+
+.team-section > p {
+  font-size: 16px;
+  color: #3d3d3d;
+  margin-bottom: 32px;
+}
+
+
+/* ── 8. TEAM GROUPS & MEMBER CARDS ──────────────────────────── */
+
+.team-groups {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.group-card {
+  border: 1px solid #dde3ed;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 24px;
+  cursor: pointer;
+  background: #f7f9fc;
+  border-bottom: 1px solid #dde3ed;
+  user-select: none;
+  transition: background 0.15s;
+  gap: 16px;
+}
+
+.group-header:hover {
+  background: #edf2fb;
+}
+
+.group-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.group-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.group-icon.ucd  { background: #002f6c; }
+.group-icon.ilmi { background: #006747; }
+
+.group-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: #fff;
+}
+
+.group-org-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #777;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.group-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1e1e1e;
+}
+
+.group-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: #005b99;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.toggle-arrow {
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid #005b99;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.toggle-arrow svg {
+  width: 10px;
+  height: 10px;
+  fill: #005b99;
+  transition: transform 0.25s;
+}
+
+.group-card.open .toggle-arrow {
+  background: #005b99;
+}
+
+.group-card.open .toggle-arrow svg {
+  fill: #fff;
+  transform: rotate(180deg);
+}
+
+.group-members {
+  display: none;
+  padding: 24px;
+  background: #fff;
+}
+
+.group-card.open .group-members {
+  display: block;
+}
+
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 18px;
+}
+
+.member-card {
+  border: 1px solid #e4eaf5;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.member-card:hover {
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.1);
+}
+
+.member-photo {
+  background: #dde3ee;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.member-photo.ilmi-bg {
+  background: #d2e8df;
+}
+
+.member-photo svg {
+  width: 38px;
+  height: 38px;
+  fill: #9aa4b8;
+}
+
+.member-photo.ilmi-bg svg {
+  fill: #4a8a6e;
+}
+
+/* To use real team photos: replace <div class="member-photo"> with
+   <img src="images/team/name.jpg" alt="Name" class="member-photo-img"> */
+
+.member-photo-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+}
+
+.member-info {
+  padding: 14px 16px;
+  border-top: 1px solid #e4eaf5;
+}
+
+.member-role {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #005b99;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.member-info.ilmi-theme .member-role {
+  color: #006747;
+}
+
+.member-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e1e1e;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.member-desc {
+  font-size: 13px;
+  color: #4a4a4a;
+  line-height: 1.55;
+}
+
+.member-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: #005b99;
+}
+
+
+/* ── 9. NEWS SECTION ─────────────────────────────────────────── */
+
+.news-section {
+  padding: 56px 0;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.news-section > h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  color: #1e1e1e;
+  margin-bottom: 32px;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.news-card {
+  border: 1px solid #dde3ed;
+  border-radius: 4px;
+  padding: 22px;
+  background: #fafbfd;
+}
+
+.news-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+  background: #1e1e1e;
+  padding: 4px 10px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+
+.news-date {
+  font-size: 13px;
+  color: #005b99;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.news-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1e1e1e;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.news-card p {
+  font-size: 14.5px;
+  color: #4a4a4a;
+  line-height: 1.65;
+}
+
+
+/* ── 10. QUICK LINKS ─────────────────────────────────────────── */
+
+.links-section {
+  padding: 38px 0;
+  border-bottom: 1px solid #e4e4e4;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.links-section a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  color: #005b99;
+  font-weight: 600;
+  padding: 8px 18px;
+  border: 1.5px solid #005b99;
+  border-radius: 3px;
+  transition: background 0.15s, color 0.15s;
+  text-decoration: none;
+}
+
+.links-section a:hover {
+  background: #005b99;
+  color: #fff;
+  text-decoration: none;
+}
+
+
+/* ── 11. CONTACT SECTION ─────────────────────────────────────── */
+
+.contact-section {
+  padding: 56px 0 48px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.contact-section h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  color: #1e1e1e;
+  margin-bottom: 16px;
+}
+
+.contact-section p {
+  font-size: 16px;
+  color: #3d3d3d;
+  line-height: 1.75;
+  margin-bottom: 22px;
+}
+
+.contact-section .section-label {
+  margin-bottom: 8px;
+}
+
+.contact-detail {
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.contact-detail:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.contact-detail-label {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #777;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.contact-detail-value {
+  font-size: 16px;
+  color: #1e1e1e;
+  font-weight: 600;
+}
+
+.contact-detail-value a {
+  color: #005b99;
+}
+
+
+/* ── 12. FOOTER ──────────────────────────────────────────────── */
+
+.footer-contact {
+  background: #f5f5f5;
+  border-top: 1px solid #e0e0e0;
+  padding: 28px 40px;
+}
+
+.footer-contact-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-contact p {
+  font-size: 14px;
+  color: #444;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-social a {
+  width: 34px;
+  height: 34px;
+  background: #1e1e1e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-social a svg {
+  width: 16px;
+  height: 16px;
+  fill: #fff;
+}
+
+footer {
+  background: #1e1e1e;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 40px;
+}
+
+.footer-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-crest {
+  width: 60px;
+  opacity: 0.85;
+}
+
+.footer-brand p {
+  font-size: 13px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+.footer-col h5 {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 700;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.65);
+  transition: color 0.15s;
+  text-decoration: none;
+}
+
+.footer-col ul li a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  max-width: 1160px;
+  margin: 30px auto 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+}
+
+
+/* ── 13. RESPONSIVE ──────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .about-grid,
+  .contact-section,
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .activities-grid,
+  .team-groups,
+  .news-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .body-wrap {
+    padding: 0 24px;
+  }
+
+  .hero-content {
+    padding: 36px 24px 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .activities-grid,
+  .team-groups,
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar-nav {
+    display: none;
+  }
+
+  footer {
+    padding: 32px 24px;
+  }
+
+  .footer-contact {
+    padding: 24px;
+  }
+}
+
+  </style>
 </head>
 <body>
 
